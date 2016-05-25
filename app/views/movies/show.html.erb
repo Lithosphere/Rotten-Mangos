@@ -1,6 +1,6 @@
 <h2><%= link_to "Link to home", movies_path %></h2>
 <h1><%= link_to @movie.title, edit_movie_path %></h1>
-<%= image_tag(@movie.poster_image_url, size: "300x300") %><br>
+<%= image_tag(@movie.image.url) %><br>
 <h2><%= formatted_date(@movie.release_date) %></h2>
 <h3>Director: <%= @movie.director %> | <%= @movie.runtime_in_minutes %></h3>
 <% if @movie.review_average != "N/A" %><br>
