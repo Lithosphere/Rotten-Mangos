@@ -5,6 +5,7 @@ class Movie < ActiveRecord::Base
   validates :description, presence: true
   validates :poster_image_url, presence: true
   validate :release_date_is_in_the_past
+  has_many :reviews
 
   protected
 

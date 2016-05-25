@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
     @movie = Movie.new(movie_params)
 
     if @movie.save
-      redirect_to movies_path
+      redirect_to movies_path, notice: "#{@movie.title} was added to the list of movies!"
     else
       render :new
     end
@@ -27,10 +27,10 @@ class MoviesController < ApplicationController
   end
 
   def update
-    @movies = Movie.find(params[:id])
+    @movie = Movie.find(params[:id])
 
-    if @movies.update_attributes(movie_params)
-      redirect_to movies_path
+    if @movie.update_attributes(movie_params)
+      redirect_to movies_path, notice: "#{@movie.title} has been updated!"
     else
       render :edit
     end
