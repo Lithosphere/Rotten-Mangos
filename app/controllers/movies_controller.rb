@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
 
+
   def index
     @movies = Movie.all
   end
@@ -28,7 +29,6 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
-
     if @movie.update_attributes(movie_params)
       redirect_to movies_path, notice: "#{@movie.title} has been updated!"
     else
