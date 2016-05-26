@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def new
     @user = User.new
   end
@@ -18,6 +19,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation)
+  end
+
+  def is_admin?
+    @user.admin == true
   end
 
 end

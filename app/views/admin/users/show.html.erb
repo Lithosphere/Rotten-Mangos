@@ -1,0 +1,6 @@
+<h1>Name: <%= @user.full_name %></h1>
+<hr>
+<h3>Email: <%= @user.email %></h3><br>
+<h3>Admin Status: <%= @user.admin %></h3>
+[<%= link_to "Edit User", edit_admin_user_path %>]
+[<%= link_to "Delete", admin_user_path(@user), :method => :delete, :"data-confirm" => "Your sure?" %>]
