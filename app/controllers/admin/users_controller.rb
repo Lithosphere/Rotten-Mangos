@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
 
-  before_action :restrict_admin_access
+  before_filter :restrict_admin_access
 
     def index
       @users = User.order(:id).page(params[:page]).per(5)
@@ -50,14 +50,19 @@ class Admin::UsersController < ApplicationController
       end
     end
 
+    def impersonate
+      raise "im here"
+    end
+
     protected
 
     def restrict_admin_access
 
-      if !current_user || current_user.admin == nil
-        flash[:alert] = "You must log in."
-        redirect_to new_session_path
+      if !current_user || (current_user.admin == nil || current_user.admin == false)
+        flash[:alert] = "You must be an admin."
+        redirect_to movies_path
       end
+
     end
 
     def admin_params

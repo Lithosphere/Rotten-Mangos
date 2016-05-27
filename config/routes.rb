@@ -11,6 +11,9 @@ RottenMangos::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
     namespace :admin do
-      resources :users
+      resources :users do
+        post :impersonate
+    end
   end
+
 end

@@ -1,0 +1,21 @@
+
+[1mFrom:[0m /vagrant/Rotten-Mangos/app/controllers/movies_controller.rb @ line 7 MoviesController#index:
+
+     [1;34m4[0m: [32mdef[0m [1;34mindex[0m
+     [1;34m5[0m:   @movies = [1;34;4mMovie[0m.all
+     [1;34m6[0m:   @movies = @movies.where([31m[1;31m"[0m[31mtitle LIKE ?[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31m%#{params[:title]}[0m[31m%[1;31m"[0m[31m[0m) [32mif[0m params[[33m:title[0m].present?
+ =>  [1;34m7[0m:   binding.pry
+     [1;34m8[0m:   @movies = @movies.where([31m[1;31m"[0m[31mdirector LIKE ?[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31m%#{params[:director]}[0m[31m%[1;31m"[0m[31m[0m) [32mif[0m params[[33m:director[0m].present?
+     [1;34m9[0m:   [32mif[0m params[[33m:runtime[0m]
+    [1;34m10[0m:     [32mcase[0m params[[33m:runtime[0m]
+    [1;34m11[0m:     [32mwhen[0m [31m[1;31m"[0m[31ma[1;31m"[0m[31m[0m
+    [1;34m12[0m:      @movies = @movies.where([31m[1;31m"[0m[31mruntime_in_minutes < 90[1;31m"[0m[31m[0m)
+    [1;34m13[0m:     [32mwhen[0m [31m[1;31m"[0m[31mb[1;31m"[0m[31m[0m
+    [1;34m14[0m:      @movies = @movies.where([31m[1;31m"[0m[31mruntime_in_minutes BETWEEN 90 AND 120[1;31m"[0m[31m[0m)
+    [1;34m15[0m:     [32mwhen[0m [31m[1;31m"[0m[31mc[1;31m"[0m[31m[0m
+    [1;34m16[0m:      @movies = @movies.where([31m[1;31m"[0m[31mruntime_in_minutes > 90[1;31m"[0m[31m[0m)
+    [1;34m17[0m:     [32mend[0m
+    [1;34m18[0m:   [32mend[0m
+    [1;34m19[0m:   @movies
+    [1;34m20[0m: [32mend[0m
+
