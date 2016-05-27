@@ -9,11 +9,17 @@ class Movie < ActiveRecord::Base
 
   mount_uploader :image, AvatarUploader
 
+  scope :title_search, -> (title) { where("title LIKE ?", title) }
+  scope :director_search, -> (director) { where("director LIKE?", director) }
+
+  scope :under_90, -> { where("runtime_in_minutes < 90") }
+  scope :over_120, -> { where("runtime_in_minutes > 120") }
+  scope :between_90_and_120, -> { where("runtime_in_minutes BETWEEN 90 AND 120") }
+
   def review_average
    reviews.size != 0 ? reviews.sum(:rating_out_of_ten)/reviews.size : "N/A"
   end
 
-  
 
   protected
 
