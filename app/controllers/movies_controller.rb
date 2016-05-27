@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
       when "b"
        @movies = @movies.where("runtime_in_minutes BETWEEN 90 AND 120")
       when "c"
-       @movies = @movies.where("runtime_in_minutes > 90")
+       @movies = @movies.where("runtime_in_minutes > 120")
       end
     end
   end
@@ -54,9 +54,6 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
-  def self.search(title, director, runtime)
-
-  end
 
   protected
 
