@@ -4,8 +4,7 @@ class MoviesController < ApplicationController
   def index
 
     @movies = Movie.all
-    @movies = @movies.director_search(params[:director]) if params[:director].present?
-    @movies = @movies.title_search(params[:title]) if params[:title].present?
+    @movies = @movies.search(params[:title_director]) if params[:title_director].present?
     @prev_choice = params[:runtime] if params[:runtime]
     @movies = @movies.under_90 if params[:runtime] == "a"
     @movies = @movies.between_90_and_120 if params[:runtime] == "b"
