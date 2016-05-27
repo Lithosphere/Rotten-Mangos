@@ -1,7 +1,9 @@
 <h1>List of all Users</h1>
 <% @users.each do |user| %>
-  <%= link_to user.full_name, admin_user_path(user) %><hr>
+  <br><%= link_to user.full_name, admin_user_path(user) %>
+  <%= link_to "Delete", admin_user_path(user), :method => :delete, :"data-confirm" => "Your sure?" %>
 <% end %>
+<hr>
   <%= link_to "New admin account", new_admin_user_path %>
 <hr>
 <%= paginate @users %>
