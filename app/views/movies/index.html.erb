@@ -5,15 +5,8 @@
     <p>
       <%= text_field_tag :title, params[:title], placeholder: "Title" %>
       <%= text_field_tag :director, params[:director], placeholder: "Director" %>
-      <%= select_tag :runtime, options_for_select([['Less than 90 Minutes', "a"], ['Between 90 and 120 Minutes', "b"], ['Greater than 120 Minutes', "c"]]), :include_blank => true %>
+      <%= select_tag :runtime, options_for_select([['Less than 90 Minutes', "a"], ['Between 90 and 120 Minutes', "b"], ['Greater than 120 Minutes', "c"]], @prev_choice), :include_blank => true %>
       <%= submit_tag "Search" %>
     </p>
   <% end %>
-  <% @movies.each do |movie| %>
-  <%= image_tag movie.image.url %>
-  <h2><%= link_to movie.title, movie_path(movie) %></h2>
-  <h3><%= formatted_date(movie.release_date) %></h3>
-  <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-  <p><%= movie.description %></p>
-  <hr>
-  <% end %>
+  <%= render 'movie' %>
