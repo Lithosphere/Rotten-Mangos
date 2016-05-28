@@ -2,6 +2,6 @@
 <hr>
 <h3>Email: <%= @user.email %></h3><br>
 <% @user.reviews.each do |review| %>
-  <p><%= review.text %></p>
   <%= link_to review.movie.title, movie_path(review.movie) %>
+<p><%= review.text %></p>
 <% end %>

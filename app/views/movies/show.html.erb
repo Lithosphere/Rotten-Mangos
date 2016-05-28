@@ -1,4 +1,4 @@
-<h2><%= link_to "Link to home", movies_path %></h2>
+<%= render 'header' %>
 <h1>EDIT: <%= link_to @movie.title, edit_movie_path %></h1>
 <%= image_tag(@movie.image.url) %><br>
 <h2><%= formatted_date(@movie.release_date) %></h2>

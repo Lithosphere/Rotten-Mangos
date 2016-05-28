@@ -1,6 +1,5 @@
-  <h1>Rotten Mangoes</h1>
+  <%= render 'header' %>
   <%= link_to "Submit a movie!", new_movie_path %><br>
-  <hr>
   <%= form_tag movies_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :title_director, params[:title_director], placeholder: "Title or Director" %>
